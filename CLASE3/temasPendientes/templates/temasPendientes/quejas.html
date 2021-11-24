@@ -1,0 +1,20 @@
+{% extends "temasPendientes/base_generic.html" %}
+
+
+{% block title %} 
+QUEJAS
+{% endblock %}
+
+{% block h1 %}
+QUEJAS
+{% endblock %}
+
+
+{% block body %}
+<form method="post">
+    {% csrf_token %}
+    {{form}}
+    <br>
+    <input type="submit" value="Enviar">
+</form>
+{% endblock %}

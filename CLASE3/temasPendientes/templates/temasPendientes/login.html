@@ -1,0 +1,17 @@
+{% extends "temasPendientes/base_generic.html" %}
+
+{% block title %} 
+LOGIN
+{% endblock %}
+
+{% block h1 %}
+LOGIN
+{% endblock %}
+
+{% block body %}
+<form method="post">
+    {% csrf_token %}
+    {{form}}
+    <input type="submit" value="Enviar">
+</form>
+{% endblock %}

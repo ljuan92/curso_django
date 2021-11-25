@@ -20,8 +20,3 @@ def bookDetail(request):
     )
 
 
-def StudentList(request):
-    return render(
-        request,
-        
-    )

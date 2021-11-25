@@ -19,15 +19,15 @@
 
 8. En el archivo urls.py de la app se importa views habiendo hecho el paso numero 5 y se incluye en urlpatterns:
 
-|   ``urlpatterns = [
-|       path('', views.FirstView)
-|   ]``
+   ``urlpatterns = [
+       path('', views.FirstView)
+   ]``
 
 ## Crear vista (Ejemplo)
 
-|   ``def FirstView(request):
-|       return render(
-|           request,
-|           'RepasoClaseAnterior/index.html',
-|           {}
-|       )``
+   ``def FirstView(request):
+       return render(
+           request,
+           'RepasoClaseAnterior/index.html',
+           {}
+       )``

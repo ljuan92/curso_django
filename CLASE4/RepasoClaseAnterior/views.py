@@ -5,41 +5,38 @@ from django.shortcuts import render
 """ Esto por ahora es una base de datos improvisada """
 baseDeDatosImprovisada = [
     {
-        "id": 1,
-        "name": "Deycis",
-        "lastName": "Mejias",
-        "number": 2
+        "id" : 1,
+        "name" : "Deycis",
+        "lastName" : "Mejias",
+        "number" : 2
     },
     {
-        "id": 2,
-        "name": "Federico",
-        "lastName": "Sodo",
-        "number": 8
+        "id" : 2,
+        "name" : "Federico",
+        "lastName" : "Sodo",
+        "number" : 8
     },
     {
-        "id": 3,
-        "name": "Matias",
-        "lastName": "Rapa",
-        "number": 4
+        "id" : 3,
+        "name" : "Matias",
+        "lastName" : "Rapa",
+        "number" : 4
     }
 ]
-
 
 def FirstView(request):
     return render(
         request,
-        'RepasoClaseAnterior/index.html',
-        {'Nombre': 'Juan'}
+        'RespasoClaseAnterior/index.html',
+        { "nombre" : "Matias"}
     )
-
 
 def SecondView(request, name):
     return render(
         request,
         'RespasoClaseAnterior/index.html',
-        {"nombre": name}
+        { "nombre" : name}
     )
-
 
 def StudentList(request):
     """
@@ -48,17 +45,15 @@ def StudentList(request):
     return render(
         request,
         'RespasoClaseAnterior/student-list.html',
-        {'studentList': baseDeDatosImprovisada}
+        {'studentList' : baseDeDatosImprovisada }
     )
-
 
 def SearchStudent(id):
     studentFind = ""
     for student in baseDeDatosImprovisada:
-        if student["id"] == id:
+        if student["id"]== id:
             studentFind = student
     return studentFind
-
 
 def StudentDetail(request, id):
     print(id)
@@ -67,5 +62,5 @@ def StudentDetail(request, id):
     return render(
         request,
         'RespasoClaseAnterior/student-detail.html',
-        {'student': student}
+        {'student' : student}
     )

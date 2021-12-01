@@ -1,0 +1,25 @@
+{% extends 'BookStore/base_generic.html' %}
+
+{% block title %} Detalle {% endblock %}
+
+{% block body %}
+    <p> title : {{book.title}}</p>
+    <p> precio : {{book.price}}</p>
+    <p> Sinosis : {{ book.sysnopsis }} </p>
+    <p> Editorial :
+        <a href="{% url 'editorialDetail' book.editorial.id %}">
+            {{book.editorial}}
+        </a>
+    </p>
+    <!-- PENDIENTE -->
+    <p> Autores : </p>
+    <ul>
+        {% for author in book.authors.all %}
+        <li>
+            <a href="{% url 'authorDetail' author.id %}">
+                {{author.name}} {{author.lastname}}
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

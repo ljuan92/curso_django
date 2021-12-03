@@ -10,7 +10,7 @@ class Theme(models.Model):
 class Journalist(models.Model):
     name = models.CharField(max_length=40)
     lastName = models.CharField(max_length=40)
-    # image_profile =
+    image_profile = models.ImageField(null=True)
     themes = models.ManyToManyField(Theme)
 
 
@@ -36,4 +36,4 @@ class News(models.Model):
         Journalist,
         on_delete=models.CASCADE
     )
-    # imagen =
+    main_image = models.ImageField(null=True)

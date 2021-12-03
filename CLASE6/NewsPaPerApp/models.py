@@ -6,12 +6,21 @@ from django.db import models
 class Theme(models.Model):
     name = models.CharField(max_length=30)
 
+    def __str__(self):
+        return self.name
+
 
 class Journalist(models.Model):
     name = models.CharField(max_length=40)
     lastName = models.CharField(max_length=40)
     image_profile = models.ImageField(null=True)
     themes = models.ManyToManyField(Theme)
+
+    def __str__(self):
+        return "{0}, {1}".format(
+            self.lastName,
+            self.name
+        )
 
 
 class News(models.Model):
@@ -37,3 +46,6 @@ class News(models.Model):
         on_delete=models.CASCADE
     )
     main_image = models.ImageField(null=True)
+
+    def __str__(self):
+        return self.title

@@ -6,4 +6,18 @@ Todas las noticias
 
 {% block main %}
 <p>Lista de noticias</p>
+<article class="news">
+    {% for item in list %}
+    <section>
+        <img src="{{ item.main_image.url }}" alt="">
+        <div>
+            <h5>{{item.title}}</h5>
+            <p>{{item.detail}}</p>
+            <a href="{% url 'detailNew' item.id %}">Leer más</a>
+            <p class="small">Escrito por: {{item.write_by.lastName}}, {{item.write_by.name}} escrito el {{item.publish_date}}</p>
+        </div>
+    </section>
+    {% endfor %}
+</article>
 {% endblock %}
+

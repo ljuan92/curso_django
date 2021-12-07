@@ -5,5 +5,7 @@ La noticia
 {% endblock %}
 
 {% block main %}
-<p>Detalle</p>
+<h1>{{new.title}}</h1>
+<p>{{new.detail}}</p>
+<img style="height: 300px;" src="{{ new.main_image.url }}" alt="">
 {% endblock %}

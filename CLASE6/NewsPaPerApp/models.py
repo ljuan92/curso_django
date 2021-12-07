@@ -49,3 +49,10 @@ class News(models.Model):
 
     def __str__(self):
         return self.title
+
+    class Images(models.Model):
+        news = models.ForeignKey(
+            News,
+            on_delete=models.CASCADE
+            )
+        image = models.ImageField()

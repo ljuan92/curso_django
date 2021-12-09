@@ -1,23 +1,22 @@
-{% extends 'NewsPaperApp/basic_generic.html' %}
+{% extends 'NewsPaperApp/base_generic.html' %}
 
 {% block title %}
-Todas las noticias
+    Todas las noticias
 {% endblock %}
 
 {% block main %}
-<p>Lista de noticias</p>
-<article class="news">
-    {% for item in list %}
-    <section>
-        <img src="{{ item.main_image.url }}" alt="">
-        <div>
-            <h5>{{item.title}}</h5>
-            <p>{{item.detail}}</p>
-            <a href="{% url 'detailNew' item.id %}">Leer más</a>
-            <p class="small">Escrito por: {{item.write_by.lastName}}, {{item.write_by.name}} escrito el {{item.publish_date}}</p>
-        </div>
-    </section>
-    {% endfor %}
-</article>
+    <p>Lista de noticas</p>
+    <article class="news">
+        {% for item in list %}
+        <section>
+            <img src="{{ item.main_image.url }}" alt="">
+            <div>
+                <h5>{{item.title}}</h5>
+                <p>{{item.detail}}</p>
+                <a href="{% url 'detailNew' item.id %}"> Leer mas </a>
+                <p class="small"> Escrito por {{item.write_by.lastname}},{{item.write_by.name}} el {{item.publish_date}} </p>    
+            </div>
+        </section>
+        {% endfor %}
+    </article>
 {% endblock %}
-

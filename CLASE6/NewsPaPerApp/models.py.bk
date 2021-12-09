@@ -1,5 +1,4 @@
 from django.db import models
-from django.db.models.fields import CharField
 
 # Create your models here.
 
@@ -13,18 +12,19 @@ class Theme(models.Model):
 
 class Journalist(models.Model):
     name = models.CharField(max_length=40)
-    lastname = models.CharField(max_length=40)
-    thems = models.ManyToManyField(Theme)
+    lastName = models.CharField(max_length=40)
     image_profile = models.ImageField(null=True)
+    themes = models.ManyToManyField(Theme)
 
     def __str__(self):
         return "{0}, {1}".format(
-            self.lastname,
+            self.lastName,
             self.name
         )
 
 
 class News(models.Model):
+
     state_of_news = [
         ("E", "Editando"),
         ("P", "Publicado"),
@@ -36,7 +36,7 @@ class News(models.Model):
         choices=state_of_news,
         default="E"
     )
-    create_date = models.DateTimeField(auto_now_add=True)
+    name = models.DateTimeField(auto_now_add=True)
     publish_date = models.DateTimeField(null=True)
     last_update_date = models.DateTimeField(auto_now=True)
     title = models.CharField(max_length=100)
@@ -50,18 +50,9 @@ class News(models.Model):
     def __str__(self):
         return self.title
 
-
-class Images(models.Model):
-    news = models.ForeignKey(
-        News,
-        on_delete=models.CASCADE
-        )
-    image = models.ImageField()
-
-class Comment(models.Model):
-    name = models.CharField(max_length=50)
-    comment = models.CharField(max_length=200)
-    news = models.ForeignKey(
-        News,
-        on_delete=models.CASCADE
-    )
+    class Images(models.Model):
+        news = models.ForeignKey(
+            News,
+            on_delete=models.CASCADE
+            )
+        image = models.ImageField()

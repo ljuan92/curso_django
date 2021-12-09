@@ -1,4 +1,6 @@
-header {
+
+
+header{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -8,10 +10,13 @@ header {
 
 header nav {
     padding: 10px;
-    width: 80%;
+    width: 100%;
+    border-top: gray 2px solid;
+    border-bottom: gray 2px solid;
+
 }
 
-nav ul {
+nav ul{
     list-style: none;
     display: flex;
     flex-direction: row;
@@ -19,34 +24,36 @@ nav ul {
     justify-content: space-around;
 }
 
-.logo {
-    height: 60px;
+
+.logo{
+    height: 50px;
+    padding: 10px;
 }
 
-.news {
+.news{
     display: flex;
     flex-direction: column;
     padding: 10px;
-    
 }
 
-.news section {
+.news section{
     margin-top: 10px;
     display: flex;
     flex-direction: row;
-    border: orange solid 1px ;
+    border: orange solid 1px;
 }
 
-.news section div h5 {
+.news section div h5{
     font-size: 30px;
     font-weight: bold;
     margin-bottom: 5px;
 }
 
-.news section div .small {
+.news section div .small{
     color: gray;
     font-size: 15px;
 }
+
 
 .news section img{
     height: 180px;
